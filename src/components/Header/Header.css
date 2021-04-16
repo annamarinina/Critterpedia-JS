@@ -5,7 +5,13 @@
 }
 
 .icon {
-    height: 50px;
+    height: 3em;
+    width: 3em;
+    display: inline-flex;
+    align-self: center;
+    top: 0.8em;
+    right: 0.5em;
+    position: relative;
 }
 
 .heading {

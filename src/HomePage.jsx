@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './components/Button/Button';
 import axios from 'axios';
+import moment from 'moment';
 
 const typesOfCritters = ['Fish', 'Sea Creatures', 'Bugs'];
 
@@ -8,6 +9,9 @@ export const HomePage = () => {
     const [fishData, setFishData] = useState({ fish: [] });
     const [bugData, setBugData] = useState({ bugs: [] });
     const [seaCreatureData, setSeaCreatureData] = useState({ seaCreatures: [] });
+    const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern'
+    const [month, setMonth] = useState(null); // TODO: default to current
+    const [hour, setHour] = useState(null); // TODO: default to current
 
     useEffect(async() => {
         const fishURL = 'https://acnhapi.com/v1/fish';
@@ -32,9 +36,6 @@ export const HomePage = () => {
     return (
         <div>
             <p>Welcome to Critterpedia!</p>
-            {typesOfCritters.map((critter, index) => 
-                <Button label={critter} key={index} path={'/' + critter}></Button>
-            )}
         </div>
     )
 }
