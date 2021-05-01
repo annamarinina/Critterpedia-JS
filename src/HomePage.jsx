@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { RadioGroup } from './components/RadioGroup';
 import { SelectMenu } from './components/SelectMenu';
 import moment from 'moment';
@@ -11,26 +10,6 @@ export const HomePage = () => {
     const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern' TODO: make dynamic
     const [month, setMonth] = useState(moment().month() + 1);
     const [hour, setHour] = useState(moment().hour());
-
-  /*  useEffect(async() => {
-        const fishURL = 'https://acnhapi.com/v1/fish';
-        const bugURL = 'https://acnhapi.com/v1/bugs';
-        const seaURL = 'https://acnhapi.com/v1/sea';
-
-        const fishReq = axios.get(fishURL);
-        const bugReq = axios.get(bugURL);
-        const seaReq = axios.get(seaURL);
-
-        axios.all([fishReq, bugReq, seaReq]).then(axios.spread((...responses) => {
-            const fishRes = responses[0];
-            const bugRes = responses[1];
-            const seaRes = responses[2];
-
-            setFishData(fishRes.data);
-            setBugData(bugRes.data);
-            setSeaCreatureData(seaRes.data);
-        }));
-    }, []); */
 
     return (
         <div>
