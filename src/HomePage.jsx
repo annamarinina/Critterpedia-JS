@@ -12,7 +12,7 @@ export const HomePage = () => {
     const [month, setMonth] = useState(moment().month() + 1);
     const [hour, setHour] = useState(moment().hour());
 
-    useEffect(async() => {
+  /*  useEffect(async() => {
         const fishURL = 'https://acnhapi.com/v1/fish';
         const bugURL = 'https://acnhapi.com/v1/bugs';
         const seaURL = 'https://acnhapi.com/v1/sea';
@@ -30,7 +30,7 @@ export const HomePage = () => {
             setBugData(bugRes.data);
             setSeaCreatureData(seaRes.data);
         }));
-    }, []);
+    }, []); */
 
     return (
         <div>
