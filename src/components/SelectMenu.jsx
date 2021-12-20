@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 export const SelectMenu = (props) => {
-    const [value, setValue] = useState(props.defaultValue);
+    const dispatch = useDispatch();
 
     const onChange = e => {
         console.log('selected', e.target.value);
-        setValue(e.target.value);
+        dispatch(props.onSelect(e.target.value))
       };
 
     return (

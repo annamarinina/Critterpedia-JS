@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { RadioGroup } from './components/RadioGroup';
 import { SelectMenu } from './components/SelectMenu';
 import moment from 'moment';
+import { setMonth } from './app/filters/monthSlice';
+import { setHour } from './app/filters/hourSlice';
 
 export const HomePage = () => {
-    const [fishData, setFishData] = useState({ fish: [] });
-    const [bugData, setBugData] = useState({ bugs: [] });
-    const [seaCreatureData, setSeaCreatureData] = useState({ seaCreatures: [] });
+   // const [fishData, setFishData] = useState({ fish: useSelector((state) => state.fishData.fish) });
+   // const [bugData, setBugData] = useState({ bugs: useSelector((state) => state.bugData.bugs) });
+   // const [seaCreatureData, setSeaCreatureData] = useState({ seaCreatures: useSelector((state) => state.seaCreaturesData.seaCreatures) });
+    const fish = useSelector((state) => state.fishData.fish);
     const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern' TODO: make dynamic
-    const [month, setMonth] = useState(moment().month() + 1);
-    const [hour, setHour] = useState(moment().hour());
+    const month = useSelector((state) => state.month.month);
+    const hour = useSelector((state) => state.hour.hour);
+
+    useEffect(() => {
+        console.log(fish);
+    })
 
     return (
         <div>
@@ -21,7 +29,7 @@ export const HomePage = () => {
                 {label: 'Southern', value: 'Southern'}]} 
                 defaultVal={hemisphere} />
             
-           <SelectMenu options={[
+            <SelectMenu options={[
                 {label: 'January', value: 1},
                 {label: 'February', value: 2},
                 {label: 'March', value: 3},
@@ -36,7 +44,43 @@ export const HomePage = () => {
                 {label: 'December', value: 12}
             ]}
             defaultVal={month}
+            onSelect={setMonth}
             label={"Please select month of interest"} />
+
+            <p>Month in store: {useSelector((state) => state.month.month)}</p>
+
+            <SelectMenu options={[
+                {label: '0', value: 0},
+                {label: '1', value: 1},
+                {label: '2', value: 2},
+                {label: '3', value: 3},
+                {label: '4', value: 4},
+                {label: '5', value: 5},
+                {label: '6', value: 6},
+                {label: '7', value: 7},
+                {label: '8', value: 8},
+                {label: '9', value: 9},
+                {label: '10', value: 10},
+                {label: '11', value: 11},
+                {label: '12', value: 12},
+                {label: '13', value: 13},
+                {label: '14', value: 14},
+                {label: '15', value: 15},
+                {label: '16', value: 16},
+                {label: '17', value: 17},
+                {label: '18', value: 18},
+                {label: '19', value: 19},
+                {label: '20', value: 20},
+                {label: '21', value: 21},
+                {label: '22', value: 22},
+                {label: '23', value: 23},
+                {label: '24', value: 24}
+            ]}
+            defaultVal={hour}
+            onSelect={setHour}
+            label={"Please select hour of interest"} />
+
+            <p>Hour in store: {useSelector((state) => state.hour.hour)}</p>
 
         </div>
     )

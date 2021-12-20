@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
 
 export const hourSlice = createSlice({
     name: 'hour',
     initialState: {
-        hour: ''
+        hour: moment().hour()
     },
     reducers: {
-        sethour: (state, action) => {
+        setHour: (state, action) => {
             state.hour = action.payload;
         }
     }
 });
 
-export const { sethour } = hourSlice.actions;
+export const { setHour } = hourSlice.actions;
 
 export default hourSlice.reducer;

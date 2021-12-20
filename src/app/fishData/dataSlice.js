@@ -4,7 +4,8 @@ import axios from 'axios';
 export const fetchFishData = createAsyncThunk('data/fetchFishData', async () => {
     console.log('fetching')
     const response = await axios.get('https://acnhapi.com/v1/fish');
-    return response.data;
+    const result = Object.values(response.data);
+    return result;
 });
 
 export const dataSlice = createSlice({

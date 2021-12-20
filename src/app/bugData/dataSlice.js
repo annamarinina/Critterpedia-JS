@@ -4,7 +4,8 @@ import axios from 'axios';
 export const fetchBugData = createAsyncThunk('data/fetchBugData', async () => {
     console.log('fetching');
     const response = await axios.get('https://acnhapi.com/v1/bugs');
-    return response.data;
+    const result = Object.values(response.data);
+    return result;
 })
 
 export const dataSlice = createSlice({
