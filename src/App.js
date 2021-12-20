@@ -35,10 +35,6 @@ function App() {
       if (seaCreaturesStatus == 'idle') {
         dispatch(fetchSeaCreaturesData());
       }
-
-      console.log(fish);
-      console.log(bugs);
-      console.log(seaCreatures);
     }, [fishStatus, bugStatus, seaCreaturesStatus, dispatch])
 
   return (

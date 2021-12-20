@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RadioGroup } from './components/RadioGroup';
 import { SelectMenu } from './components/SelectMenu';
-import moment from 'moment';
 import { setMonth } from './app/filters/monthSlice';
 import { setHour } from './app/filters/hourSlice';
+import { CritterGrid } from './components/CritterGrid/CritterGrid';
 
 export const HomePage = () => {
    // const [fishData, setFishData] = useState({ fish: useSelector((state) => state.fishData.fish) });
@@ -47,8 +47,6 @@ export const HomePage = () => {
             onSelect={setMonth}
             label={"Please select month of interest"} />
 
-            <p>Month in store: {useSelector((state) => state.month.month)}</p>
-
             <SelectMenu options={[
                 {label: '0', value: 0},
                 {label: '1', value: 1},
@@ -80,8 +78,8 @@ export const HomePage = () => {
             onSelect={setHour}
             label={"Please select hour of interest"} />
 
-            <p>Hour in store: {useSelector((state) => state.hour.hour)}</p>
-
+            <CritterGrid data={fish} month={month} hour={hour} />
+            
         </div>
     )
 }
