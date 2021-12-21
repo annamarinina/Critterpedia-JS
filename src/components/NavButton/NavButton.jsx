@@ -5,6 +5,6 @@ import './NavButton.css';
 export const NavButton = (props) => {
     const history = useHistory();
     return (
-        <button className="button" onClick={() => history.push(props.path)}>{props.label}</button>
+        <button className={`button ${props.selected ? "selected" : ""}`} onClick={() => history.push(props.path)}>{props.label}</button>
     )
 }

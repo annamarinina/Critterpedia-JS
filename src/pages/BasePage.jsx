@@ -6,7 +6,7 @@ import { setMonth } from '../app/filters/monthSlice';
 import { setHour } from '../app/filters/hourSlice';
 import { NavButton } from '../components/NavButton/NavButton';
 
-export const BasePage = () => {
+export const BasePage = (props) => {
     const fish = useSelector((state) => state.fishData.fish);
     const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern' TODO: make dynamic
     const month = useSelector((state) => state.month.month);
@@ -75,9 +75,9 @@ export const BasePage = () => {
             onSelect={setHour}
             label={"Please select hour of interest"} />
 
-            <NavButton label="Fish" path="/fish"/>
-            <NavButton label="Bugs" path="/bugs" />
-            <NavButton label="Sea Creatures" path="/seacreatures" />
+            <NavButton label="Fish" path="/fish" selected={props.page == 'fish' ? true : false} />
+            <NavButton label="Bugs" path="/bugs" selected={props.page == 'bugs' ? true : false} />
+            <NavButton label="Sea Creatures" path="/seacreatures" selected={props.page == 'sea' ? true : false} />
         </div>
     )
 }

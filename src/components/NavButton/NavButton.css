@@ -9,10 +9,10 @@
 }
 
 .button:hover {
-    background-color: lightyellow;
+    background-color: yellow;
     cursor: pointer;
 }
 
-.button:active {
+.selected {
     background-color: yellow;
 }
