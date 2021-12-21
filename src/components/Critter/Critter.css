@@ -7,12 +7,20 @@
     margin: 5px;
 }
 
+.critter:hover {
+    cursor: pointer;
+}
+
+.critter:hover .label {
+    display: flex;
+}
+
 img {
     height: 70px;
 }
 
 .label {
-    font-size: 20px;
-    color: green;
-    margin-right: 65px;
+    display: none;
+    font-size: 30px;
+    color: rgb(81, 90, 76);
 }

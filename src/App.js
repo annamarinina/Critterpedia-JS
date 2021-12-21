@@ -4,9 +4,12 @@ import { fetchFishData } from './app/fishData/dataSlice';
 import { fetchBugData } from './app/bugData/dataSlice';
 import { fetchSeaCreaturesData } from './app/seaCreaturesData/dataSlice';
 import { Header } from './components/Header/Header';
-import { HomePage } from './HomePage';
+import { FishPage } from './pages/FishPage';
+import { BugPage } from './pages/BugPage';
+import { SeaCreaturePage } from './pages/SeaCreaturePage';
 import {
   BrowserRouter as Router,
+  Redirect,
   Route
 } from "react-router-dom";
 import './App.css';
@@ -41,7 +44,15 @@ function App() {
     <Router>
     <div className="App">
     <Header />
-        <Route exact path="/" component={HomePage} />
+        <Route 
+          exact 
+          path="/" 
+          render={() => {
+            return ( <Redirect to="/fish" />
+            )}} />
+        <Route exact path="/fish" component={FishPage} />
+        <Route exact path="/bugs" component={BugPage} />
+        <Route exact path="/seacreatures" component={SeaCreaturePage} />
     </div>
     </Router>
   );

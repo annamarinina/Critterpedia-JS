@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { RadioGroup } from './components/RadioGroup';
-import { SelectMenu } from './components/SelectMenu';
-import { setMonth } from './app/filters/monthSlice';
-import { setHour } from './app/filters/hourSlice';
-import { CritterGrid } from './components/CritterGrid/CritterGrid';
+import { RadioGroup } from '../components/RadioGroup';
+import { SelectMenu } from '../components/SelectMenu';
+import { setMonth } from '../app/filters/monthSlice';
+import { setHour } from '../app/filters/hourSlice';
+import { NavButton } from '../components/NavButton/NavButton';
 
-export const HomePage = () => {
-   // const [fishData, setFishData] = useState({ fish: useSelector((state) => state.fishData.fish) });
-   // const [bugData, setBugData] = useState({ bugs: useSelector((state) => state.bugData.bugs) });
-   // const [seaCreatureData, setSeaCreatureData] = useState({ seaCreatures: useSelector((state) => state.seaCreaturesData.seaCreatures) });
+export const BasePage = () => {
     const fish = useSelector((state) => state.fishData.fish);
     const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern' TODO: make dynamic
     const month = useSelector((state) => state.month.month);
@@ -78,8 +75,9 @@ export const HomePage = () => {
             onSelect={setHour}
             label={"Please select hour of interest"} />
 
-            <CritterGrid data={fish} month={month} hour={hour} />
-            
+            <NavButton label="Fish" path="/fish"/>
+            <NavButton label="Bugs" path="/bugs" />
+            <NavButton label="Sea Creatures" path="/seacreatures" />
         </div>
     )
 }
