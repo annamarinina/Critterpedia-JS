@@ -1,5 +1,4 @@
 import React from 'react';
-import { CritterLabel } from '../CritterLabel/CritterLabel';
 import './Critter.css'
 
 export const Critter = (props) => {

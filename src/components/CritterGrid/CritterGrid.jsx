@@ -14,8 +14,12 @@ export const CritterGrid = (props) => {
     }
 
     return(
-        <table>
-            {filterData(props.data).map(critter => <tr><Critter label={critter.name["name-USen"]} iconUri = {critter["icon_uri"]} /></tr>)}
-        </table>
+        <div class="gridContainer">
+            {filterData(props.data).map(critter => 
+            <div class="gridItem">
+                <Critter label={critter.name["name-USen"]} iconUri = {critter["icon_uri"]} />
+                <span className="label">{critter.name["name-USen"]}</span>
+            </div>)}
+        </div>
     )
 }

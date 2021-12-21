@@ -1,26 +1,15 @@
 .critter {
     display: flex;
-    background-color: white;
-    max-width: 300px;
-    border-radius: 20px;
-    border: 5px solid lightgreen;
-    margin: 5px;
+    background-color: transparent;
+    max-width: 80px;
+    margin: 10px;
+    position: relative;
 }
 
 .critter:hover {
     cursor: pointer;
 }
 
-.critter:hover .label {
-    display: flex;
-}
-
 img {
     height: 70px;
-}
-
-.label {
-    display: none;
-    font-size: 30px;
-    color: rgb(81, 90, 76);
 }

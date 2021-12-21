@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     height: 100px;
-    background-color: lightgreen;
+    background-color: darkgreen;
 }
 
 .icon {
@@ -18,4 +18,5 @@
     margin: 0;
     line-height: 100px;
     display: inline;
+    color: rgb(255, 255, 241);
 }

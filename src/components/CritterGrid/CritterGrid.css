@@ -1,0 +1,48 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    background-color: darkgreen;
+    padding: 5px;
+}
+
+.gridItem {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 30px;
+    justify-content: center;
+    position: relative;
+}
+
+.gridItem:hover {
+    outline: 3px dashed darkgreen;
+    outline-offset: -8px;
+    cursor: pointer;
+}
+
+.gridItem .label {
+    visibility: hidden;
+    background-color: rgb(241, 241, 215);
+    color: rgb(75, 74, 74);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 20px;
+    border: 2px solid rgb(112, 112, 112);
+    opacity: 50%;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.gridItem:hover .label {
+    visibility: visible;
+    opacity: 100%;
+    transition: opacity 0.3s;
+}

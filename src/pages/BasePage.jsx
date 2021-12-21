@@ -14,8 +14,6 @@ export const BasePage = (props) => {
 
     return (
         <div>
-            <p>Welcome to Critterpedia!</p>
-
             <p>Please select your hemisphere:</p>
             <RadioGroup buttons={[
                 {label: 'Northern', value: 'Northern'}, 
@@ -71,8 +69,6 @@ export const BasePage = (props) => {
             defaultVal={hour}
             onSelect={setHour}
             label={"Please select hour of interest"} />
-
-            <p>Hemisphere in store: {hemisphere}</p>
 
             <NavButton label="Fish" path="/fish" selected={props.page == 'fish' ? true : false} />
             <NavButton label="Bugs" path="/bugs" selected={props.page == 'bugs' ? true : false} />
