@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BasePage } from './BasePage';
 import { CritterGrid } from '../components/CritterGrid/CritterGrid';
@@ -16,7 +16,7 @@ export const BugPage = () => {
     return (
         <div>
             <BasePage page={'bugs'} />
-            <CritterGrid data={bugs} month={month} hour={hour} />
+            <CritterGrid data={bugs} month={month} hour={hour} hemisphere={hemisphere} />
         </div>
     )
 }

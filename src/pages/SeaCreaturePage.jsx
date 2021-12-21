@@ -16,7 +16,7 @@ export const SeaCreaturePage = () => {
     return (
         <div>
             <BasePage page={'sea'} />
-            <CritterGrid data={seaCreatures} month={month} hour={hour} />
+            <CritterGrid data={seaCreatures} month={month} hour={hour} hemisphere={hemisphere} />
         </div>
     )
 }

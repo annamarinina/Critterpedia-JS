@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { RadioGroup } from '../components/RadioGroup';
 import { SelectMenu } from '../components/SelectMenu';
 import { setMonth } from '../app/filters/monthSlice';
 import { setHour } from '../app/filters/hourSlice';
+import { setHemisphere } from '../app/filters/hemisphereSlice';
 import { NavButton } from '../components/NavButton/NavButton';
 
 export const BasePage = (props) => {
-    const fish = useSelector((state) => state.fishData.fish);
-    const [hemisphere, setHemisphere] = useState('Northern'); // 'Northern' | 'Southern' TODO: make dynamic
+    const hemisphere = useSelector((state) => state.hemisphere.hemisphere);
     const month = useSelector((state) => state.month.month);
     const hour = useSelector((state) => state.hour.hour);
-
-    useEffect(() => {
-        console.log(fish);
-    })
 
     return (
         <div>
@@ -24,7 +20,8 @@ export const BasePage = (props) => {
             <RadioGroup buttons={[
                 {label: 'Northern', value: 'Northern'}, 
                 {label: 'Southern', value: 'Southern'}]} 
-                defaultVal={hemisphere} />
+                defaultVal={hemisphere}
+                onSelect={setHemisphere} />
             
             <SelectMenu options={[
                 {label: 'January', value: 1},
@@ -74,6 +71,8 @@ export const BasePage = (props) => {
             defaultVal={hour}
             onSelect={setHour}
             label={"Please select hour of interest"} />
+
+            <p>Hemisphere in store: {hemisphere}</p>
 
             <NavButton label="Fish" path="/fish" selected={props.page == 'fish' ? true : false} />
             <NavButton label="Bugs" path="/bugs" selected={props.page == 'bugs' ? true : false} />

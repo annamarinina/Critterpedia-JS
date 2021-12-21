@@ -6,7 +6,7 @@ export const SelectMenu = (props) => {
 
     const onChange = e => {
         console.log('selected', e.target.value);
-        dispatch(props.onSelect(e.target.value))
+        dispatch(props.onSelect(e.target.value));
       };
 
     return (
