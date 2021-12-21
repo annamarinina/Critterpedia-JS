@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RadioGroup } from '../components/RadioGroup';
-import { SelectMenu } from '../components/SelectMenu';
+import { SelectMenu } from '../components/SelectMenu/SelectMenu';
 import { setMonth } from '../app/filters/monthSlice';
 import { setHour } from '../app/filters/hourSlice';
 import { setHemisphere } from '../app/filters/hemisphereSlice';

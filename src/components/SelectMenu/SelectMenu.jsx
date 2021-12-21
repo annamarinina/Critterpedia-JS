@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import './SelectMenu.css';
 
 export const SelectMenu = (props) => {
     const dispatch = useDispatch();
@@ -10,9 +11,9 @@ export const SelectMenu = (props) => {
       };
 
     return (
-      <div>
+      <div className="selectMenu">
         <label for="select">{props.label}</label>
-        <select id="select" onChange={onChange}>
+        <select className="dropDown" id="select" onChange={onChange}>
           {props.options.map(({label, value}) => <option value={value} key={value + '_' + label} selected={props.defaultVal == value ? true:false}>{label}</option>)}
         </select>
       </div>
