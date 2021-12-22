@@ -5,6 +5,7 @@ import seaCreaturesReducer from './seaCreaturesData/dataSlice';
 import hemisphereReducer from './filters/hemisphereSlice';
 import monthReducer from './filters/monthSlice';
 import hourReducer from './filters/hourSlice';
+import languageReducer from './filters/languageSlice';
 
 export default configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export default configureStore({
         seaCreaturesData: seaCreaturesReducer,
         hemisphere: hemisphereReducer,
         month: monthReducer,
-        hour: hourReducer
+        hour: hourReducer,
+        language: languageReducer
     },
 });

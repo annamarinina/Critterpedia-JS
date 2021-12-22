@@ -5,15 +5,37 @@ import { SelectMenu } from '../components/SelectMenu/SelectMenu';
 import { setMonth } from '../app/filters/monthSlice';
 import { setHour } from '../app/filters/hourSlice';
 import { setHemisphere } from '../app/filters/hemisphereSlice';
+import { setLanguage } from '../app/filters/languageSlice';
 import { NavButton } from '../components/NavButton/NavButton';
 
 export const BasePage = (props) => {
+    const language = useSelector((state) => state.language.language);
     const hemisphere = useSelector((state) => state.hemisphere.hemisphere);
     const month = useSelector((state) => state.month.month);
     const hour = useSelector((state) => state.hour.hour);
 
     return (
         <div>
+            <SelectMenu options={[
+                {label: 'English (US)', value: 'name-USen'},
+                {label: 'English (EU)', value: 'name-EUen'},
+                {label: 'German (EU)', value: 'name-EUde'},
+                {label: 'Spanish (EU)', value: 'name-EUes'},
+                {label: 'Spanish (US)', value: 'name-USes'},
+                {label: 'French (EU)', value: 'name-EUfr'},
+                {label: 'French (US)', value: 'name-USfr'},
+                {label: 'Italian', value: 'name-EUit'},
+                {label: 'Dutch', value: 'name-EUnl'},
+                {label: 'Simplified Chinese', value: 'name-CNzh'},
+                {label: 'Traditional Chinese', value: 'name-TWzh'},
+                {label: 'Japanese', value: 'name-JPja'},
+                {label: 'Korean', value: 'name-KRko'},
+                {label: 'Russian', value: 'name-EUru'},
+            ]}
+            defaultVal={language}
+            onSelect={setLanguage}
+            label={"Please select the language you'd like critters' names displayed in"} />
+
             <p>Please select your hemisphere:</p>
             <RadioGroup buttons={[
                 {label: 'Northern', value: 'Northern'}, 
