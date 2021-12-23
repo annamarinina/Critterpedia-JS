@@ -1,15 +1,17 @@
 .gridContainer {
     display: grid;
     background-color: darkgreen;
+    grid-template-rows: repeat(5, auto);
+    grid-auto-flow: column;
     padding: 5px;
 }
 
 .sixteenColumns {
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(16, auto);
 }
 
 .eightColumns {
-    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(8, auto);
 }
 
 .gridItem {
