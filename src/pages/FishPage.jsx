@@ -17,7 +17,13 @@ export const FishPage = () => {
     return (
         <div>
             <BasePage page={'fish'} />
-            <CritterGrid data={fish} month={month} hour={hour} hemisphere={hemisphere} language={language} />
+            <CritterGrid 
+                data={fish} 
+                month={month} 
+                hour={hour} 
+                hemisphere={hemisphere} 
+                language={language}
+                critterType={'fish'} />
         </div>
     )
 }

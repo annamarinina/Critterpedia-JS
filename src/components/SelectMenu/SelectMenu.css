@@ -1,3 +1,10 @@
 .selectMenu {
-    padding: 15px;
+    padding: 20px;
+}
+
+select {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 15px;
 }

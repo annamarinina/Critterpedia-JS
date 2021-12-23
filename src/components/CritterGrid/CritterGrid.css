@@ -1,8 +1,15 @@
 .gridContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
     background-color: darkgreen;
     padding: 5px;
+}
+
+.sixteenColumns {
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.eightColumns {
+    grid-template-columns: auto auto auto auto auto auto auto auto;
 }
 
 .gridItem {

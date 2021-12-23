@@ -10,6 +10,36 @@
     cursor: pointer;
 }
 
+.critter .label {
+    visibility: hidden;
+    background-color: rgb(241, 241, 215);
+    color: rgb(75, 74, 74);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 20px;
+    border: 2px solid rgb(112, 112, 112);
+    opacity: 50%;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.critter:hover .label {
+    visibility: visible;
+    opacity: 100%;
+    transition: opacity 0.3s;
+}
+
+.unavailable {
+    filter: brightness(15%);
+}
+
 img {
     height: 70px;
 }

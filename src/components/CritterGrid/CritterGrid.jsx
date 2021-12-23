@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CritterGrid.css';
 import { Critter } from '../Critter/Critter';
 
 export const CritterGrid = (props) => {
 
-    const monthArrayHemisphere = props.hemisphere == 'Northern' ? "month-array-northern" : "month-array-southern";
+    //props: critterType: fish | bugs | sea 
+
+    const [filteredData, setFilteredData] = useState([]);
 
     const filterData = (data) => {
         data = data.filter(f => f.availability[monthArrayHemisphere].includes(Number(props.month)));
@@ -13,12 +15,20 @@ export const CritterGrid = (props) => {
         return data;
     }
 
+    useEffect(() => {
+        setFilteredData(filterData(props.data));
+    })
+
+    const monthArrayHemisphere = props.hemisphere == 'Northern' ? "month-array-northern" : "month-array-southern";
+
     return(
-        <div class="gridContainer">
-            {filterData(props.data).map(critter => 
-            <div class="gridItem">
-                <Critter label={critter.name[`${props.language}`]} iconUri = {critter["icon_uri"]} />
-                <span className="label">{critter.name[`${props.language}`]}</span>
+        <div className={`gridContainer ${props.critterType == 'sea' ? "eightColumns" : "sixteenColumns"}`}>
+            {props.data.map(critter => 
+            <div className="gridItem">
+                <Critter 
+                    label={critter.name[`${props.language}`]} 
+                    iconUri={critter["icon_uri"]}
+                    available={filteredData.includes(critter) ? true : false} />
             </div>)}
         </div>
     )

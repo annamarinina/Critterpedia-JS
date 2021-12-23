@@ -17,7 +17,13 @@ export const BugPage = () => {
     return (
         <div>
             <BasePage page={'bugs'} />
-            <CritterGrid data={bugs} month={month} hour={hour} hemisphere={hemisphere} language={language} />
+            <CritterGrid 
+                data={bugs} 
+                month={month} 
+                hour={hour} 
+                hemisphere={hemisphere} 
+                language={language}
+                critterType={'bugs'} />
         </div>
     )
 }
