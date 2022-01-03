@@ -4,7 +4,7 @@ import { Critter } from '../Critter/Critter';
 
 export const CritterGrid = (props) => {
 
-    //props: critterType: fish | bugs | sea 
+    // props: critterType: fish | bugs | sea 
 
     const [filteredData, setFilteredData] = useState([]);
 
@@ -12,11 +12,14 @@ export const CritterGrid = (props) => {
         data = data.filter(f => f.availability[monthArrayHemisphere].includes(Number(props.month)));
         data = data.filter(f => f.availability["time-array"].includes(Number(props.hour)));
         console.log('filtered data: ', data);
+        setFilteredData(data);
         return data;
     }
 
-    useEffect(() => {
+   useEffect(() => {
+       if(filteredData.length == 0) {
         setFilteredData(filterData(props.data));
+       }
     })
 
     const monthArrayHemisphere = props.hemisphere == 'Northern' ? "month-array-northern" : "month-array-southern";
@@ -28,7 +31,14 @@ export const CritterGrid = (props) => {
                 <Critter 
                     label={critter.name[`${props.language}`]} 
                     iconUri={critter["icon_uri"]}
-                    available={filteredData.includes(critter) ? true : false} />
+                    imgUri={critter["image_uri"]}
+                    location={critter.availability.location}
+                    rarity={critter.availability.rarity}
+                    price={critter.price}
+                    specialPrice={props.critterType == 'fish' ? critter["price-cj"] : critter["price-flick"]} // TODO: account for sea creatures
+                    purchaser={props.critterType == 'fish' ? "CJ" : "Flick"} // TODO: account for sea creatures
+                    available={filteredData.includes(critter) ? true : false}
+                     />
             </div>)}
         </div>
     )
